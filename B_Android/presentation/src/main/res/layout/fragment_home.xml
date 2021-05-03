@@ -7,7 +7,15 @@
         <variable
             name="homeViewModel"
             type="com.simple.b_.viewmodel.home.HomeViewModel" />
+
+        <variable
+            name="constant"
+            type="com.simple.data.utils.Constants" />
     </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -83,4 +91,6 @@
                 bind:adapter="@{homeViewModel.getMealAdapter}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 </layout>
