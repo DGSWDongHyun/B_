@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="colorPrimary">#252525</color>
-    <color name="colorPrimaryVariant">#151515</color>
+    <color name="colorPrimaryVariant">#2B2B2B</color>
     <color name="colorOnPrimary">@color/black</color>
+
 </resources>

@@ -36,4 +36,12 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid2_version"
+
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2_version"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit2_version"
+
+    implementation project(':domain')
 }
