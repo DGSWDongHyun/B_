@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
@@ -47,8 +48,8 @@
       <list>
         <option value="resourceFile" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -158,35 +159,45 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="497" y="170" key="#com.intellij.ide.util.MemberChooser" timestamp="1619929155355">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="-1257" y="106" key="#com.intellij.ide.util.MemberChooser" timestamp="1620029141445">
+      <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
+    <state x="-1257" y="106" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620029141445" />
     <state x="497" y="170" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1619929155355" />
     <state x="308" y="209" key="AndroidCreateResourceDirectoryDialog" timestamp="1619927704935">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="308" y="209" key="AndroidCreateResourceDirectoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1619927704934" />
-    <state x="-1509" y="153" key="AndroidCreateResourceFileDialog" timestamp="1620005629478">
+    <state x="-1509" y="153" key="AndroidCreateResourceFileDialog" timestamp="1620019731422">
       <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
     <state x="-1509" y="153" key="AndroidCreateResourceFileDialog/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620005629478" />
     <state x="308" y="209" key="AndroidCreateResourceFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1619924978690" />
-    <state width="1398" height="184" key="GridCell.Tab.0.bottom" timestamp="1619866289004">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="-1509" y="153" key="AndroidCreateResourceFileDialog/0.25.1440.875/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620019731422" />
+    <state width="1878" height="300" key="GridCell.Tab.0.bottom" timestamp="1620033028969">
+      <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
+    <state width="1878" height="300" key="GridCell.Tab.0.bottom/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620033028969" />
     <state width="1398" height="184" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1619866289004" />
-    <state width="1398" height="184" key="GridCell.Tab.0.center" timestamp="1619866288998">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1878" height="243" key="GridCell.Tab.0.bottom/0.25.1440.875/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620029780790" />
+    <state width="1878" height="300" key="GridCell.Tab.0.center" timestamp="1620033028966">
+      <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
+    <state width="1878" height="300" key="GridCell.Tab.0.center/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620033028966" />
     <state width="1398" height="184" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1619866288998" />
-    <state width="1398" height="184" key="GridCell.Tab.0.left" timestamp="1619866288864">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1878" height="243" key="GridCell.Tab.0.center/0.25.1440.875/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620029780784" />
+    <state width="1878" height="300" key="GridCell.Tab.0.left" timestamp="1620033028961">
+      <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
+    <state width="1878" height="300" key="GridCell.Tab.0.left/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620033028961" />
     <state width="1398" height="184" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1619866288864" />
-    <state width="1398" height="184" key="GridCell.Tab.0.right" timestamp="1619866288998">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1878" height="243" key="GridCell.Tab.0.left/0.25.1440.875/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620029780764" />
+    <state width="1878" height="300" key="GridCell.Tab.0.right" timestamp="1620033028967">
+      <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
+    <state width="1878" height="300" key="GridCell.Tab.0.right/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620033028967" />
     <state width="1398" height="184" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1619866288998" />
+    <state width="1878" height="243" key="GridCell.Tab.0.right/0.25.1440.875/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620029780786" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1619863369470">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

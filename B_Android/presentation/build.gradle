@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.simple.b_"
-        minSdkVersion 26
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -51,6 +51,7 @@ dependencies {
 
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid2_version"
+    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
 
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2_version"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit2_version"

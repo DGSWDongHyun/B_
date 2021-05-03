@@ -9,10 +9,6 @@
             type="com.simple.b_.viewmodel.home.HomeViewModel" />
     </data>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -83,9 +79,8 @@
                 android:layout_marginEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                bind:adapter="@{homeViewModel.getMealAdapter}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
 </layout>
