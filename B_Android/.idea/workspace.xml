@@ -65,8 +65,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/presentation/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/presentation/src/main/res/drawable" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/presentation/src/main/res/drawable" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -174,33 +180,38 @@
     <state x="-1509" y="153" key="AndroidCreateResourceFileDialog/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620005629478" />
     <state x="308" y="209" key="AndroidCreateResourceFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1619924978690" />
     <state x="-1509" y="153" key="AndroidCreateResourceFileDialog/0.25.1440.875/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620019731422" />
-    <state width="1878" height="300" key="GridCell.Tab.0.bottom" timestamp="1620033028969">
+    <state width="1878" height="249" key="GridCell.Tab.0.bottom" timestamp="1620084937334">
       <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
-    <state width="1878" height="300" key="GridCell.Tab.0.bottom/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620033028969" />
+    <state width="1878" height="249" key="GridCell.Tab.0.bottom/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620084937334" />
     <state width="1398" height="184" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1619866289004" />
     <state width="1878" height="243" key="GridCell.Tab.0.bottom/0.25.1440.875/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620029780790" />
-    <state width="1878" height="300" key="GridCell.Tab.0.center" timestamp="1620033028966">
+    <state width="1878" height="249" key="GridCell.Tab.0.center" timestamp="1620084937328">
       <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
-    <state width="1878" height="300" key="GridCell.Tab.0.center/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620033028966" />
+    <state width="1878" height="249" key="GridCell.Tab.0.center/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620084937328" />
     <state width="1398" height="184" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1619866288998" />
     <state width="1878" height="243" key="GridCell.Tab.0.center/0.25.1440.875/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620029780784" />
-    <state width="1878" height="300" key="GridCell.Tab.0.left" timestamp="1620033028961">
+    <state width="1878" height="249" key="GridCell.Tab.0.left" timestamp="1620084937316">
       <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
-    <state width="1878" height="300" key="GridCell.Tab.0.left/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620033028961" />
+    <state width="1878" height="249" key="GridCell.Tab.0.left/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620084937316" />
     <state width="1398" height="184" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1619866288864" />
     <state width="1878" height="243" key="GridCell.Tab.0.left/0.25.1440.875/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620029780764" />
-    <state width="1878" height="300" key="GridCell.Tab.0.right" timestamp="1620033028967">
+    <state width="1878" height="249" key="GridCell.Tab.0.right" timestamp="1620084937333">
       <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
-    <state width="1878" height="300" key="GridCell.Tab.0.right/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620033028967" />
+    <state width="1878" height="249" key="GridCell.Tab.0.right/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620084937333" />
     <state width="1398" height="184" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1619866288998" />
     <state width="1878" height="243" key="GridCell.Tab.0.right/0.25.1440.875/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620029780786" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1619863369470">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="-1169" y="224" key="chooseDestDirectoryDialog" timestamp="1620088165040">
+      <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
+    <state x="-1169" y="224" key="chooseDestDirectoryDialog/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620088165040" />
+    <state x="-1407" y="137" width="894" height="812" key="search.everywhere.popup" timestamp="1620085716829">
+      <screen x="-1920" y="-98" width="1920" height="1080" />
+    </state>
+    <state x="-1407" y="137" width="894" height="812" key="search.everywhere.popup/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620085716829" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1619863369470" />
   </component>
 </project>

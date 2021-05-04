@@ -1,10 +1,12 @@
 package com.simple.b_.base.adapter
 
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
+import com.bumptech.glide.Glide
 import com.simple.b_.view.adapters.MealAdapter
 import com.simple.data.utils.Constants
 
@@ -22,6 +24,12 @@ class BindingAdapter {
                 val snapHelper = PagerSnapHelper()
                 snapHelper.attachToRecyclerView(recyclerView!!)
             }
+        }
+
+        @JvmStatic
+        @BindingAdapter("bind:glide")
+        fun setImage(imageView : ImageView?, res : Int?) {
+            Glide.with(imageView!!.context).load(res).into(imageView)
         }
     }
 }

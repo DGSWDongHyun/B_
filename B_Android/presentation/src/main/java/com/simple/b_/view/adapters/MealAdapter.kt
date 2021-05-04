@@ -6,7 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.simple.b_.R
 import com.simple.b_.databinding.ItemCardMealBinding
+import com.simple.b_.viewmodel.meal.MealViewModel
 import com.simple.data.model.MealInfo
 import com.simple.data.model.MealsData
 import com.simple.data.model.RowData
@@ -34,9 +37,10 @@ class MealAdapter(private var mealList : ArrayList<MealInfo> = arrayListOf()) : 
 }
 
 class MealViewHolder(val item : ItemCardMealBinding) : RecyclerView.ViewHolder(item.root) {
+    val viewModel = MealViewModel()
+
     fun bind(data : MealInfo) {
-        item.mealTitle.text = data.MMEAL_SC_NM
-        item.mealContents.text = Html.fromHtml(data.DDISH_NM, 1)
-        item.executePendingBindings()
+        viewModel.bind(data)
+        item.mealViewModel = viewModel
     }
 }
