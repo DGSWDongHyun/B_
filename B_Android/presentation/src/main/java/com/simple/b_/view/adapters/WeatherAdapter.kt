@@ -28,7 +28,9 @@ class WeatherAdapter(private var weatherList : ArrayList<WeatherData> = arrayLis
 
 class WeatherViewHolder(private val item : ItemWeatherBinding) : RecyclerView.ViewHolder(item.root) {
     fun bind(weatherData : WeatherData) {
-        item.weatherTitle.text = weatherData.weatherTitle
+        item.weatherTitle.text = weatherData.main
+        item.weatherContents.text = weatherData.description
+
         item.executePendingBindings()
     }
 }

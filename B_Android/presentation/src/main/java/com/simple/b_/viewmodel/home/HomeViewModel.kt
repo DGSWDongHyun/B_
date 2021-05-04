@@ -3,6 +3,7 @@ package com.simple.b_.viewmodel.home
 import android.app.Activity
 import android.app.Application
 import android.os.Handler
+import android.text.Html
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -23,7 +24,10 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 import java.util.function.Consumer
+import kotlin.collections.ArrayList
 
 class HomeViewModel() : ViewModel() {
 
@@ -33,6 +37,10 @@ class HomeViewModel() : ViewModel() {
     private val instance = NetworkModule.getDefaultMealInstance()
     private val api = instance.create(MealsAPI::class.java)
     private val mealAdapter = MutableLiveData<MealAdapter>()
+    private val dateTime = "${SimpleDateFormat("MM월 dd일").format(Date(System.currentTimeMillis()))} 급식이에요.".replace("0", "")
+
+    val mealTodayDate : String
+        get() = Html.fromHtml("<b>${dateTime}</b>", 1).toString()
 
     val getMealAdapter : MealAdapter
         get() = mealAdapter.value!!
@@ -43,7 +51,7 @@ class HomeViewModel() : ViewModel() {
     init {
         mealAdapter.value = MealAdapter()
         weatherAdapter.value = WeatherAdapter()
-        for(i in 1 until 8) { weatherDateList.add(WeatherData("대구 7월 ${i}일")) }
+        weatherDateList.add(WeatherData(0, "", "", ""))
         for(i in 1 until 8) { mealDataList.add(MealInfo("대구 7월 ${i}일","대구 7월 ${i}일","대구 7월 ${i}일","대구 7월 ${i}일")) }
 
         mealAdapter.value?.setData(mealDataList)

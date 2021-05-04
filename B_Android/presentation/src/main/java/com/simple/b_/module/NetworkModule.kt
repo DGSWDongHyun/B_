@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkModule {
     private var network : Retrofit ?= null
+    private var weather : Retrofit ?= null
 
     fun getDefaultMealInstance() : Retrofit {
         if(network == null) {
@@ -17,5 +18,16 @@ object NetworkModule {
                 .build()
         }
         return network!!
+    }
+
+    fun getDefaultWeatherInstance() : Retrofit {
+        if(weather == null) {
+            weather = Retrofit.Builder()
+                .baseUrl(Constants.DEFAULT_ADDRESS_WEATHER)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        }
+        return weather!!
     }
 }

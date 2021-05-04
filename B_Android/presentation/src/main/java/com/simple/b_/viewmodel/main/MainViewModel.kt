@@ -9,6 +9,6 @@ class MainViewModel() : ViewModel() {
     val helloTextValue = MutableLiveData<String>()
 
     init {
-        helloTextValue.value = "hello tv with databinding , clean-architectiure"
+
     }
 }

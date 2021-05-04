@@ -24,7 +24,8 @@ class MealViewModel() : ViewModel() {
 
     fun bind(data : MealInfo) {
         mealTitle.value = data.MMEAL_SC_NM
-        mealContents.value = Html.fromHtml(data.DDISH_NM, 1).toString().replace("[0-9]".toRegex(),"").replace("[.]".toRegex(),"")
+        mealContents.value = Html.fromHtml(data.DDISH_NM, 1).toString().replace("[0-9]".toRegex(),"").replace("[.]".toRegex(),"") +
+                "\n\n\n 오늘 ${data.MMEAL_SC_NM} 칼로리는 ${data.CAL_INFO}입니다."
         when(data.MMEAL_SC_NM) {
             "조식" -> daytimeImage.value = R.drawable.ic_breakfast_
             "중식" -> daytimeImage.value = R.drawable.ic_lunch_

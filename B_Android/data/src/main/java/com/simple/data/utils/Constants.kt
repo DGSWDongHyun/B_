@@ -13,6 +13,8 @@ class Constants {
         const val DEFAULT_SCHOOL_CD = "7240454"
         const val DEFAULT_CODE = "D10"
 
+        const val DEFAULT_ADDRESS_WEATHER = "api.openweathermap.org/data/2.5/"
+
         private fun getDate() : String {
             val calendar = Calendar.getInstance()
             return SimpleDateFormat("yyyyMMdd").format(calendar.time)
