@@ -24,7 +24,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeBinding.homeViewModel = HomeViewModel(requireActivity().application)
+        homeBinding.homeViewModel = HomeViewModel()
         homeBinding.lifecycleOwner = requireActivity()
     }
 }

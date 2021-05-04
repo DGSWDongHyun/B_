@@ -2,7 +2,7 @@
     <string name="app_name">B_</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="home_hello"><br><b>안녕하세요.</b></br><br/>좋은 날이죠? 오늘 기온은 27.6°C 입니다.</string>
+    <string name="home_hello"><br><b>안녕하세요.</b></br><br />좋은 날이죠? 오늘 기온은 27.6°C 입니다.</string>
     <string name="home_today"><b>오늘 날씨는 이렇네요.</b></string>
     <string name="home_today_meal"><b>오늘 급식이에요.</b></string>
 

@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.simple.b_.module.NetworkModule
 import com.simple.b_.view.adapters.MealAdapter
 import com.simple.b_.view.adapters.WeatherAdapter
@@ -24,7 +25,7 @@ import io.reactivex.schedulers.Schedulers
 import retrofit2.Response
 import java.util.function.Consumer
 
-class HomeViewModel(application: Application) : AndroidViewModel(application) {
+class HomeViewModel() : ViewModel() {
 
     private val weatherAdapter = MutableLiveData<WeatherAdapter>()
     private val weatherDateList = ArrayList<WeatherData>()
