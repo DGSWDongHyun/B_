@@ -18,6 +18,8 @@ class Constants {
 
         const val REQUEST_GPS = 100
 
+        const val GREETING = "https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif"
+
         private fun getDate() : String {
             val calendar = Calendar.getInstance()
             return SimpleDateFormat("yyyyMMdd").format(calendar.time)

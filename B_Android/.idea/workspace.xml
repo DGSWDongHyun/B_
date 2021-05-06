@@ -49,8 +49,8 @@
       <list>
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -71,6 +71,9 @@
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
+    <key name="android.template.1245568493">
+      <recent name="com.simple.b_" />
+    </key>
     <key name="android.template.-477472470">
       <recent name="com.simple.b_.view.activites" />
     </key>
@@ -185,6 +188,10 @@
     <state x="-1509" y="153" key="AndroidCreateResourceFileDialog/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620005629478" />
     <state x="308" y="209" key="AndroidCreateResourceFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1619924978690" />
     <state x="-1509" y="153" key="AndroidCreateResourceFileDialog/0.25.1440.875/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620019731422" />
+    <state x="-1820" y="2" width="1720" height="880" key="DiffContextDialog" timestamp="1620278437203">
+      <screen x="-1920" y="-98" width="1920" height="1080" />
+    </state>
+    <state x="-1820" y="2" width="1720" height="880" key="DiffContextDialog/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620278437202" />
     <state width="1878" height="249" key="GridCell.Tab.0.bottom" timestamp="1620271767214">
       <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
@@ -217,10 +224,10 @@
       <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
     <state x="-1169" y="224" key="chooseDestDirectoryDialog/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620088165040" />
-    <state x="-1407" y="137" width="894" height="812" key="search.everywhere.popup" timestamp="1620085716829">
+    <state x="-1407" y="137" width="894" height="812" key="search.everywhere.popup" timestamp="1620279058868">
       <screen x="-1920" y="-98" width="1920" height="1080" />
     </state>
-    <state x="-1407" y="137" width="894" height="812" key="search.everywhere.popup/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620085716829" />
+    <state x="-1407" y="137" width="894" height="812" key="search.everywhere.popup/0.0.1440.900/-1920.-98.1920.1080@-1920.-98.1920.1080" timestamp="1620279058868" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1619863369470" />
   </component>
 </project>

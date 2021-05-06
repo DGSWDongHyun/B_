@@ -89,7 +89,7 @@ class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel()
                                 addAll(response.body()!!.weather)
                             }
                             val temp_ = (response.body()!!.main!!.temp?.minus(273.15))
-                            temp.value = Html.fromHtml("<br><b>안녕하세요.</b></br><br />좋은 날이죠? \n오늘 기온은 ${ceil(temp_!!)}°C 입니다.", 1).toString()
+                            temp.value = "안녕하세요. 좋은 날이죠? \n현재 기온은 ${ceil(temp_!!)}°C 입니다."
                             weatherAdapter.value?.setData(weatherDataList)
                         }
                     }else{

@@ -31,5 +31,11 @@ class BindingAdapter {
         fun setImage(imageView : ImageView?, res : Int?) {
             Glide.with(imageView!!.context).load(res).into(imageView)
         }
+
+        @JvmStatic
+        @BindingAdapter("bind:glide")
+        fun setImage(imageView : ImageView?, res : String) {
+            Glide.with(imageView!!.context).load(res).into(imageView)
+        }
     }
 }
