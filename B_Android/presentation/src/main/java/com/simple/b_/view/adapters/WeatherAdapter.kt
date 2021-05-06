@@ -3,6 +3,7 @@ package com.simple.b_.view.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.simple.b_.databinding.ItemWeatherBinding
 import com.simple.data.model.WeatherData
 
@@ -30,6 +31,7 @@ class WeatherViewHolder(private val item : ItemWeatherBinding) : RecyclerView.Vi
     fun bind(weatherData : WeatherData) {
         item.weatherTitle.text = weatherData.main
         item.weatherContents.text = weatherData.description
+        Glide.with(item.weatherImage.context).load("http://openweathermap.org/img/wn/${weatherData.icon}@2x.png").into(item.weatherImage)
 
         item.executePendingBindings()
     }

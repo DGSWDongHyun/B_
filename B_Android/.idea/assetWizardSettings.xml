@@ -92,7 +92,7 @@
                                               <map>
                                                 <entry key="color" value="ffffff" />
                                                 <entry key="fontFamily" value=".SF NS" />
-                                                <entry key="scalingPercent" value="150" />
+                                                <entry key="scalingPercent" value="125" />
                                                 <entry key="text" value="B" />
                                               </map>
                                             </option>
@@ -106,7 +106,7 @@
                                               <map>
                                                 <entry key="color" value="ffffff" />
                                                 <entry key="fontFamily" value=".SF NS" />
-                                                <entry key="scalingPercent" value="150" />
+                                                <entry key="scalingPercent" value="125" />
                                                 <entry key="text" value="B" />
                                               </map>
                                             </option>

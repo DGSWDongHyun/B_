@@ -2,6 +2,7 @@ package com.simple.b_.viewmodel.home
 
 import android.app.Activity
 import android.app.Application
+import android.location.LocationManager
 import android.os.Handler
 import android.text.Html
 import android.util.Log
@@ -15,7 +16,9 @@ import com.simple.b_.view.adapters.WeatherAdapter
 import com.simple.data.model.MealInfo
 import com.simple.data.model.MealsData
 import com.simple.data.model.WeatherData
+import com.simple.data.model.WeatherList
 import com.simple.data.network.service.MealsAPI
+import com.simple.data.network.service.WeatherAPI
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.SingleObserver
@@ -29,13 +32,18 @@ import java.util.*
 import java.util.function.Consumer
 import kotlin.collections.ArrayList
 
-class HomeViewModel() : ViewModel() {
+class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel() {
 
     private val weatherAdapter = MutableLiveData<WeatherAdapter>()
-    private val weatherDateList = ArrayList<WeatherData>()
+    private val weatherDataList = ArrayList<WeatherData>()
     private val mealDataList = ArrayList<MealInfo>()
-    private val instance = NetworkModule.getDefaultMealInstance()
-    private val api = instance.create(MealsAPI::class.java)
+
+    private val instanceMeal = NetworkModule.getDefaultMealInstance()
+    private val apiMeal = instanceMeal.create(MealsAPI::class.java)
+
+    private val instanceWeather = NetworkModule.getDefaultWeatherInstance()
+    private val apiWeather = instanceWeather.create(WeatherAPI::class.java)
+
     private val mealAdapter = MutableLiveData<MealAdapter>()
     private val dateTime = "${SimpleDateFormat("MM월 dd일").format(Date(System.currentTimeMillis()))} 급식이에요.".replace("0", "")
 
@@ -51,26 +59,56 @@ class HomeViewModel() : ViewModel() {
     init {
         mealAdapter.value = MealAdapter()
         weatherAdapter.value = WeatherAdapter()
-        weatherDateList.add(WeatherData(0, "", "", ""))
+        weatherDataList.add(WeatherData(0, "", "", ""))
         for(i in 1 until 8) { mealDataList.add(MealInfo("대구 7월 ${i}일","대구 7월 ${i}일","대구 7월 ${i}일","대구 7월 ${i}일")) }
 
         mealAdapter.value?.setData(mealDataList)
-        weatherAdapter.value?.setData(weatherDateList)
+        weatherAdapter.value?.setData(weatherDataList)
+
         onServedMealInfo()
+        onServedWeatherInfo()
+    }
+
+    private fun onServedWeatherInfo() {
+        apiWeather.getWeather(longitude, latitude)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : DisposableSingleObserver<Response<WeatherList>>() {
+                override fun onSuccess(response: Response<WeatherList>) {
+                    if(response.isSuccessful) {
+                        if(response.code() == 200) {
+                            weatherDataList.apply {
+                                clear()
+                                addAll(response.body()!!.weather)
+                            }
+                            weatherAdapter.value?.setData(weatherDataList)
+                        }
+                    }else{
+                        Log.d("TAG", "onFailed :: ${response.message()}")
+                    }
+                }
+
+                override fun onError(e: Throwable) {
+                    Log.d("TAG", "onError :: ${e.message}")
+                }
+
+            })
     }
 
     private fun onServedMealInfo(){
-        api.getMeals()
+        apiMeal.getMeals()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : DisposableSingleObserver<Response<MealsData>>() {
                 override fun onSuccess(response: Response<MealsData>) {
                     if(response.isSuccessful){
-                        mealDataList.apply {
-                            clear()
-                            addAll(response.body()!!.mealServiceDietInfo[1].row)
+                        if(response.code() == 200) {
+                            mealDataList.apply {
+                                clear()
+                                addAll(response.body()!!.mealServiceDietInfo[1].row)
+                            }
+                            mealAdapter.value?.setData(mealDataList)
                         }
-                        mealAdapter.value?.setData(mealDataList)
                     }else{
                         Log.d("TAG", "onFailed :: ${response.message()}")
                     }

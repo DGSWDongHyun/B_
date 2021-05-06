@@ -1,5 +1,9 @@
 package com.simple.data.model
 
+data class WeatherList(
+    val weather : ArrayList<WeatherData>
+)
+
 data class WeatherData(
     val id : Int?,
     val main : String?,
