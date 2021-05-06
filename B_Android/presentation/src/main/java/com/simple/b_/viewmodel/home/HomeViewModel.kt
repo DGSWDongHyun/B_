@@ -31,6 +31,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.function.Consumer
 import kotlin.collections.ArrayList
+import kotlin.math.ceil
 
 class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel() {
 
@@ -41,11 +42,16 @@ class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel()
     private val instanceMeal = NetworkModule.getDefaultMealInstance()
     private val apiMeal = instanceMeal.create(MealsAPI::class.java)
 
+    val temp = MutableLiveData<String>()
+
     private val instanceWeather = NetworkModule.getDefaultWeatherInstance()
     private val apiWeather = instanceWeather.create(WeatherAPI::class.java)
 
     private val mealAdapter = MutableLiveData<MealAdapter>()
     private val dateTime = "${SimpleDateFormat("MM월 dd일").format(Date(System.currentTimeMillis()))} 급식이에요.".replace("0", "")
+
+    val getTemp : String
+        get() = temp.value!!
 
     val mealTodayDate : String
         get() = Html.fromHtml("<b>${dateTime}</b>", 1).toString()
@@ -57,6 +63,7 @@ class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel()
         get() = weatherAdapter.value!!
 
     init {
+        temp.value = ""
         mealAdapter.value = MealAdapter()
         weatherAdapter.value = WeatherAdapter()
         weatherDataList.add(WeatherData(0, "", "", ""))
@@ -81,6 +88,8 @@ class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel()
                                 clear()
                                 addAll(response.body()!!.weather)
                             }
+                            val temp_ = (response.body()!!.main!!.temp?.minus(273.15))
+                            temp.value = Html.fromHtml("<br><b>안녕하세요.</b></br><br />좋은 날이죠? \n오늘 기온은 ${ceil(temp_!!)}°C 입니다.", 1).toString()
                             weatherAdapter.value?.setData(weatherDataList)
                         }
                     }else{

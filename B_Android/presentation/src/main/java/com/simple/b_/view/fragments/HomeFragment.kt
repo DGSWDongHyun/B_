@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import com.google.android.gms.maps.model.LatLng
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
@@ -41,6 +42,14 @@ class HomeFragment : Fragment() {
         checkPermission()
     }
 
+    private fun onChangedTemp() {
+        homeBinding.homeViewModel?.temp?.observe(requireActivity(), Observer {
+            homeBinding.tempTitle.apply {
+                text = homeBinding.homeViewModel?.getTemp
+            }
+        })
+    }
+
     private fun checkPermission() {
         if(ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
             ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED) {
@@ -54,6 +63,8 @@ class HomeFragment : Fragment() {
             if(lastKnownLocation != null) {
                 homeBinding.homeViewModel = HomeViewModel(lastKnownLocation.latitude, lastKnownLocation.longitude)
                 homeBinding.lifecycleOwner = requireActivity()
+
+                onChangedTemp()
             }else{
                 checkPermission()
             }
