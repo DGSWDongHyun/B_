@@ -2,6 +2,7 @@ package com.simple.b_.base.adapter
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -33,9 +34,16 @@ class BindingAdapter {
         }
 
         @JvmStatic
-        @BindingAdapter("bind:glide")
-        fun setImage(imageView : ImageView?, res : String) {
-            Glide.with(imageView!!.context).load(res).into(imageView)
+        @BindingAdapter(value = ["bind:glide", "bind:type"], requireAll = false)
+        fun setImage(imageView : ImageView?, res : String, type : Int? = Constants.IMAGE_TYPE_ORIGIN) {
+            when(type) {
+                Constants.IMAGE_TYPE_ORIGIN -> {
+                    Glide.with(imageView!!.context).load(res).into(imageView)
+                }
+                Constants.IMAGE_TYPE_URL -> {
+                    Glide.with(imageView!!.context).load("${Constants.OPEN_WEATHER_IMAGE}${res}@2x.png").into(imageView)
+                }
+            }
         }
     }
 }

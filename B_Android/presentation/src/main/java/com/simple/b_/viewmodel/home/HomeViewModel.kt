@@ -35,8 +35,8 @@ import kotlin.math.ceil
 
 class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel() {
 
-    private val weatherAdapter = MutableLiveData<WeatherAdapter>()
-    private val weatherDataList = ArrayList<WeatherData>()
+    val weatherData = MutableLiveData<WeatherData>()
+
     private val mealDataList = ArrayList<MealInfo>()
 
     private val instanceMeal = NetworkModule.getDefaultMealInstance()
@@ -50,27 +50,18 @@ class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel()
     private val mealAdapter = MutableLiveData<MealAdapter>()
     private val dateTime = "${SimpleDateFormat("MM월 dd일").format(Date(System.currentTimeMillis()))} 급식이에요.".replace("0", "")
 
-    val getTemp : String
-        get() = temp.value!!
-
-    val mealTodayDate : String
-        get() = Html.fromHtml("<b>${dateTime}</b>", 1).toString()
 
     val getMealAdapter : MealAdapter
         get() = mealAdapter.value!!
 
-    val getWeatherAdapter : WeatherAdapter
-        get() = weatherAdapter.value!!
-
     init {
         temp.value = ""
+        weatherData.value = WeatherData(0, "", "", "")
+
         mealAdapter.value = MealAdapter()
-        weatherAdapter.value = WeatherAdapter()
-        weatherDataList.add(WeatherData(0, "", "", ""))
         for(i in 1 until 8) { mealDataList.add(MealInfo("대구 7월 ${i}일","대구 7월 ${i}일","대구 7월 ${i}일","대구 7월 ${i}일")) }
 
         mealAdapter.value?.setData(mealDataList)
-        weatherAdapter.value?.setData(weatherDataList)
 
         onServedMealInfo()
         onServedWeatherInfo()
@@ -84,13 +75,14 @@ class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel()
                 override fun onSuccess(response: Response<WeatherList>) {
                     if(response.isSuccessful) {
                         if(response.code() == 200) {
-                            weatherDataList.apply {
-                                clear()
-                                addAll(response.body()!!.weather)
+                            val responseWeatherData : WeatherData = response.body()!!.weather[0]
+
+                            weatherData.apply {
+                                value = responseWeatherData
                             }
+
                             val temp_ = (response.body()!!.main!!.temp?.minus(273.15))
                             temp.value = "안녕하세요. 좋은 날이죠? \n현재 기온은 ${ceil(temp_!!)}°C 입니다."
-                            weatherAdapter.value?.setData(weatherDataList)
                         }
                     }else{
                         Log.d("TAG", "onFailed :: ${response.message()}")

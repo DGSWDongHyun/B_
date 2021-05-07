@@ -11,6 +11,7 @@
         <variable
             name="constant"
             type="com.simple.data.utils.Constants" />
+
     </data>
 
     <ScrollView
@@ -23,6 +24,62 @@
             android:background="@color/colorPrimary"
             tools:context=".HomeFragment">
 
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/weatherImage"
+                            bind:glide="@{homeViewModel.weatherData.icon}"
+                            bind:type="@{constant.IMAGE_TYPE_URL}"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp" />
+
+                        <TextView
+                            android:id="@+id/weatherTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:text="@{homeViewModel.weatherData.main}"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/weatherContents"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text = "@{homeViewModel.weatherData.description}"
+                        android:layout_marginTop="15dp"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
@@ -41,7 +98,7 @@
                     android:id="@+id/tempTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{homeViewModel.getTemp}"
+                    android:text="@={homeViewModel.temp}"
                     android:textColor="@color/white"
                     android:textSize="22sp"
                     android:textStyle="normal" />
@@ -50,22 +107,11 @@
                     android:id="@+id/greetingImage"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
+                    android:layout_marginLeft="5dp"
                     bind:glide="@{constant.GREETING}"
+                    bind:type="@{constant.IMAGE_TYPE_ORIGIN}"
                     bind:srcCompat="@drawable/ic_launcher_foreground" />
             </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvWeather"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                bind:adapter="@{homeViewModel.getWeatherAdapter}" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -85,12 +131,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="35dp"
                 android:text="@string/home_today_meal"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rvWeather" />
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMealsToday"

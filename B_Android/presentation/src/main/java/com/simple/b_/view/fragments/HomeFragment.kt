@@ -23,7 +23,9 @@ import com.simple.b_.R
 import com.simple.b_.databinding.FragmentHomeBinding
 import com.simple.b_.view.adapters.WeatherAdapter
 import com.simple.b_.viewmodel.home.HomeViewModel
+import com.simple.b_.viewmodel.weather.WeatherViewModel
 import com.simple.data.utils.Constants
+import kotlin.math.ceil
 
 
 class HomeFragment : Fragment() {
@@ -42,13 +44,6 @@ class HomeFragment : Fragment() {
         checkPermission()
     }
 
-    private fun onChangedTemp() {
-        homeBinding.homeViewModel?.temp?.observe(requireActivity(), Observer {
-            homeBinding.tempTitle.apply {
-                text = homeBinding.homeViewModel?.getTemp
-            }
-        })
-    }
 
     private fun checkPermission() {
         if(ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
@@ -56,19 +51,22 @@ class HomeFragment : Fragment() {
 
             ActivityCompat.requestPermissions(requireActivity(),
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION), Constants.REQUEST_GPS)
-
         }else{
             val lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
 
-            if(lastKnownLocation != null) {
-                homeBinding.homeViewModel = HomeViewModel(lastKnownLocation.latitude, lastKnownLocation.longitude)
-                homeBinding.lifecycleOwner = requireActivity()
-
-                onChangedTemp()
-            }else{
-                checkPermission()
+            if(lastKnownLocation != null)
+                getLocation(lastKnownLocation)
+            else {
+                homeBinding.tempTitle.apply {
+                    text = "안녕하세요. 좋은 날이죠? \n현재 기온 정보를 가져오시려면 GPS를 활성화해주세요."
+                }
             }
         }
+    }
+
+    private fun getLocation(lastKnownLocation : Location) {
+        homeBinding.homeViewModel = HomeViewModel(lastKnownLocation.latitude, lastKnownLocation.longitude)
+        homeBinding.lifecycleOwner = requireActivity()
     }
 
 
