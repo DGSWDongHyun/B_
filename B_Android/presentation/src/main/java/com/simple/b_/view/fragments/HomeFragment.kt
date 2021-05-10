@@ -41,6 +41,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        homeBinding.homeViewModel = HomeViewModel()
+        homeBinding.lifecycleOwner = requireActivity()
+
         checkPermission()
     }
 
@@ -65,8 +68,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun getLocation(lastKnownLocation : Location) {
-        homeBinding.homeViewModel = HomeViewModel(lastKnownLocation.latitude, lastKnownLocation.longitude)
-        homeBinding.lifecycleOwner = requireActivity()
+        homeBinding.homeViewModel?.gpsData!!.apply {
+            value?.latitude = lastKnownLocation.latitude
+            value?.longitude = lastKnownLocation.longitude
+        }
     }
 
 

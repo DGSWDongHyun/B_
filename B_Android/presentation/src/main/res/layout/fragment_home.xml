@@ -12,6 +12,10 @@
             name="constant"
             type="com.simple.data.utils.Constants" />
 
+        <variable
+            name="weatherConveter"
+            type="com.simple.data.utils.WeatherConverter" />
+
     </data>
 
     <ScrollView

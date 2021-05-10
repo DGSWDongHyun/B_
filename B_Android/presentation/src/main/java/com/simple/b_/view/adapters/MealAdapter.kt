@@ -4,7 +4,9 @@ import android.os.Handler
 import android.text.Html
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.simple.b_.R
@@ -42,5 +44,11 @@ class MealViewHolder(val item : ItemCardMealBinding) : RecyclerView.ViewHolder(i
     fun bind(data : MealInfo) {
         viewModel.bind(data)
         item.mealViewModel = viewModel
+
+        item.root.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
+            if(hasFocus) {
+                Log.d("TAG", "$v : $hasFocus")
+            }
+        }
     }
 }

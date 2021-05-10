@@ -18,3 +18,8 @@ data class WeatherData(
     val description : String?,
     val icon : String?
 )
+
+data class GpsData(
+    var latitude : Double?,
+    var longitude : Double?
+)

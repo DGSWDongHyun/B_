@@ -13,12 +13,10 @@ import androidx.lifecycle.ViewModel
 import com.simple.b_.module.NetworkModule
 import com.simple.b_.view.adapters.MealAdapter
 import com.simple.b_.view.adapters.WeatherAdapter
-import com.simple.data.model.MealInfo
-import com.simple.data.model.MealsData
-import com.simple.data.model.WeatherData
-import com.simple.data.model.WeatherList
+import com.simple.data.model.*
 import com.simple.data.network.service.MealsAPI
 import com.simple.data.network.service.WeatherAPI
+import com.simple.data.utils.WeatherConverter
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.SingleObserver
@@ -33,7 +31,9 @@ import java.util.function.Consumer
 import kotlin.collections.ArrayList
 import kotlin.math.ceil
 
-class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel() {
+class HomeViewModel() : ViewModel() {
+
+    val gpsData = MutableLiveData<GpsData>()
 
     val weatherData = MutableLiveData<WeatherData>()
 
@@ -55,6 +55,7 @@ class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel()
         get() = mealAdapter.value!!
 
     init {
+        gpsData.value = GpsData(0.0,0.0)
         temp.value = ""
         weatherData.value = WeatherData(0, "", "", "")
 
@@ -68,7 +69,7 @@ class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel()
     }
 
     private fun onServedWeatherInfo() {
-        apiWeather.getWeather(longitude, latitude)
+        apiWeather.getWeather(gpsData.value?.latitude, gpsData.value?.longitude)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : DisposableSingleObserver<Response<WeatherList>>() {
@@ -104,11 +105,7 @@ class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel()
                 override fun onSuccess(response: Response<MealsData>) {
                     if(response.isSuccessful){
                         if(response.code() == 200) {
-                            mealDataList.apply {
-                                clear()
-                                addAll(response.body()!!.mealServiceDietInfo[1].row)
-                            }
-                            mealAdapter.value?.setData(mealDataList)
+                            checkMealInfo(response)
                         }
                     }else{
                         Log.d("TAG", "onFailed :: ${response.message()}")
@@ -119,7 +116,28 @@ class HomeViewModel(val longitude : Double, val latitude : Double) : ViewModel()
                     Log.d("TAG", "onError :: ${e.message}")
                 }
             })
+    }
 
+    private fun checkMealInfo(response : Response<MealsData>) {
 
+        if(!response.body()!!.mealServiceDietInfo.isNullOrEmpty()) {
+            mealDataList.apply {
+                clear()
+                addAll(response.body()!!.mealServiceDietInfo[1].row)
+            }
+        }else{
+            val mealInfo = ArrayList<MealInfo>()
+
+            mealDataList.apply {
+                clear()
+
+                mealInfo.add(MealInfo("조식","","급식이 없습니다.","0.0 kcal"))
+                mealInfo.add(MealInfo("중식", "", "급식이 없습니다.", "0.0 kcal"))
+                mealInfo.add(MealInfo("석식", "", "급식이 없습니다.", "0.0 kcal"))
+
+                addAll(mealInfo)
+            }
+        }
+        mealAdapter.value?.setData(mealDataList)
     }
 }
