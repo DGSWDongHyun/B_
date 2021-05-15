@@ -10,4 +10,15 @@
     <string name="chat_menu">채팅</string>
     <string name="user_menu">내 정보</string>
 
+    <string name="intro_1st">오늘 학교 날씨 / 급식 정보를<br />
+        한 번에 확인해보세요.
+    </string>
+
+    <string name="intro_2nd">지금 회원가입 / 로그인을 통해서<br />
+        B를 이용해보세요.
+    </string>
+
+    <string name="next">다음</string>
+    <string name="finish">시작하기</string>
+
 </resources>

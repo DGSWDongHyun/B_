@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="homeViewModel"
+            name="viewModel"
             type="com.simple.b_.viewmodel.home.HomeViewModel" />
 
         <variable
@@ -57,7 +57,7 @@
 
                         <ImageView
                             android:id="@+id/weatherImage"
-                            bind:glide="@{homeViewModel.weatherData.icon}"
+                            bind:glide="@{viewModel.weatherData.icon}"
                             bind:type="@{constant.IMAGE_TYPE_URL}"
                             android:layout_width="30dp"
                             android:layout_height="30dp" />
@@ -67,7 +67,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="16sp"
-                            android:text="@{homeViewModel.weatherData.main}"
+                            android:text="@{viewModel.weatherData.main}"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -76,7 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text = "@{homeViewModel.weatherData.description}"
+                        android:text = "@{viewModel.weatherData.description}"
                         android:layout_marginTop="15dp"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -102,7 +102,7 @@
                     android:id="@+id/tempTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@={homeViewModel.temp}"
+                    android:text="@={viewModel.temp}"
                     android:textColor="@color/white"
                     android:textSize="22sp"
                     android:textStyle="normal" />
@@ -154,7 +154,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
-                bind:adapter="@{homeViewModel.getMealAdapter}" />
+                bind:adapter="@{viewModel.getMealAdapter}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

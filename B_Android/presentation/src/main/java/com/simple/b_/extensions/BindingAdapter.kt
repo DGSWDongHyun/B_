@@ -1,5 +1,7 @@
-package com.simple.b_.base.adapter
+package com.simple.b_.extensions
 
+import android.app.Activity
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.bumptech.glide.Glide
+import com.simple.b_.R
 import com.simple.b_.view.adapters.MealAdapter
 import com.simple.data.utils.Constants
 
@@ -31,7 +34,7 @@ class BindingAdapter {
         @JvmStatic
         @BindingAdapter("bind:glide")
         fun setImage(imageView : ImageView?, res : Int?) {
-            Glide.with(imageView!!.context).load(res).into(imageView)
+            Glide.with(imageView!!.context).load(res).error(R.drawable.ic_baseline_warning_amber_24).into(imageView)
         }
 
         @JvmStatic

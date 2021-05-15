@@ -1,4 +1,4 @@
-package com.simple.b_.module
+package com.simple.b_.extensions
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.simple.data.utils.Constants

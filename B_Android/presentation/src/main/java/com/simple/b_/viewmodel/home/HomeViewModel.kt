@@ -1,33 +1,19 @@
 package com.simple.b_.viewmodel.home
 
-import android.app.Activity
-import android.app.Application
-import android.location.LocationManager
-import android.os.Handler
-import android.text.Html
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.simple.b_.module.NetworkModule
+import com.simple.b_.extensions.NetworkModule
 import com.simple.b_.view.adapters.MealAdapter
-import com.simple.b_.view.adapters.WeatherAdapter
 import com.simple.data.model.*
 import com.simple.data.network.service.MealsAPI
 import com.simple.data.network.service.WeatherAPI
-import com.simple.data.utils.WeatherConverter
-import io.reactivex.Scheduler
-import io.reactivex.Single
-import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.function.Consumer
 import kotlin.collections.ArrayList
 import kotlin.math.ceil
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="splashViewModel"
+            name="viewModel"
             type="com.simple.b_.viewmodel.splash.SplashViewModel" />
     </data>
 

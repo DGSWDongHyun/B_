@@ -1,21 +1,15 @@
 package com.simple.b_.view.adapters
 
-import android.os.Handler
-import android.text.Html
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.simple.b_.R
 import com.simple.b_.databinding.ItemCardMealBinding
 import com.simple.b_.viewmodel.meal.MealViewModel
 import com.simple.data.model.MealInfo
-import com.simple.data.model.MealsData
-import com.simple.data.model.RowData
-import com.simple.data.model.WeatherData
 
 class MealAdapter(private var mealList : ArrayList<MealInfo> = arrayListOf()) : RecyclerView.Adapter<MealViewHolder>(){
 
@@ -45,9 +39,13 @@ class MealViewHolder(val item : ItemCardMealBinding) : RecyclerView.ViewHolder(i
         viewModel.bind(data)
         item.mealViewModel = viewModel
 
-        item.root.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
-            if(hasFocus) {
-                Log.d("TAG", "$v : $hasFocus")
+        item.root.onFocusChangeListener = OnFocusChangeListener { v: View?, hasFocus: Boolean ->
+            if (hasFocus) {
+                ViewCompat.animate(v!!).scaleX(1.12f).scaleY(1.12f).setDuration(30)
+                    .translationZ(1f).start()
+            } else {
+                ViewCompat.animate(v!!).scaleX(1.0f).scaleY(1.0f).setDuration(10).translationZ(0f)
+                    .start()
             }
         }
     }

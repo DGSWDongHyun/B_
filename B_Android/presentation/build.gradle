@@ -62,6 +62,15 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2_version"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit2_version"
 
+    def fragment_version = '1.2.0-rc04'
+    def nav_version = "2.2.0-rc04"
+
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    implementation "androidx.fragment:fragment-testing:$fragment_version"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
     implementation project(':data')
     implementation project(':domain')
 }
