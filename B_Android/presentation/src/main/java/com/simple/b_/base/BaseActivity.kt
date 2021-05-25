@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModel
 import com.simple.b_.BR
 import com.simple.b_.R
 import com.simple.b_.view.activites.IntroActivity
+import com.simple.b_.view.activites.SplashActivity
 
 abstract class BaseActivity<VB : ViewDataBinding, VM : ViewModel> : AppCompatActivity() {
 
@@ -31,7 +32,7 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : ViewModel> : AppCompatAct
         checkActivityBinding()
     }
 
-    private fun initializedBinding() {
+    fun initializedBinding() {
         binding = DataBindingUtil.setContentView(this, layoutRes)
         binding.lifecycleOwner = this
         binding.setVariable(BR.viewModel, viewModel)
@@ -39,15 +40,17 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : ViewModel> : AppCompatAct
 
     }
 
-    private fun checkActivityBinding() {
+    fun checkActivityBinding() {
         if(layoutRes == R.layout.activity_splash) {
             Handler().postDelayed(Runnable {
-                finish()
+                if(sharedPreferences.getBoolean("isFirst", true)) {
+                    startActivity(Intent(this, IntroActivity::class.java))
+                }else{
+                    finish()
+                }
             }, 2000)
         }else if(layoutRes == R.layout.activity_main) {
-            if(sharedPreferences.getBoolean("isFirst", true)) {
-                startActivity(Intent(this, IntroActivity::class.java))
-            }
+            startActivity(Intent(this, SplashActivity::class.java))
         }
     }
 }

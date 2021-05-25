@@ -14,4 +14,5 @@ class IntroActivity : BaseActivity<ActivityIntroBinding, IntroViewModel>() {
     override val layoutRes: Int
         get() = R.layout.activity_intro
 
+
 }
