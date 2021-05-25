@@ -13,8 +13,4 @@ abstract class BaseAdapter<VB : ViewDataBinding, VM : ViewModel, VH : RecyclerVi
 
     abstract val item : VB
     abstract val viewHolder : VH
-
-    abstract override fun onBindViewHolder(holder: VH, position: Int)
-
-    abstract override fun getItemCount(): Int
 }

@@ -19,7 +19,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     val locationManager by lazy { requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager }
 
     override val viewModel: HomeViewModel
-        get() = HomeViewModel()
+        get() = HomeViewModel(requireActivity().application)
     override val layoutRes: Int
         get() = R.layout.fragment_home
 

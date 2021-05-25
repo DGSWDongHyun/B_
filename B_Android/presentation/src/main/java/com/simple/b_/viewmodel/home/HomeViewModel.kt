@@ -1,5 +1,7 @@
 package com.simple.b_.viewmodel.home
 
+import android.app.Application
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,7 +19,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.ceil
 
-class HomeViewModel() : ViewModel() {
+class HomeViewModel(val application: Application) : ViewModel() {
 
     val gpsData = MutableLiveData<GpsData>()
 
@@ -45,7 +47,7 @@ class HomeViewModel() : ViewModel() {
         temp.value = ""
         weatherData.value = WeatherData(0, "", "", "")
 
-        mealAdapter.value = MealAdapter()
+        mealAdapter.value = MealAdapter(application.applicationContext)
         for(i in 1 until 8) { mealDataList.add(MealInfo("대구 7월 ${i}일","대구 7월 ${i}일","대구 7월 ${i}일","대구 7월 ${i}일")) }
 
         mealAdapter.value?.setData(mealDataList)

@@ -13,7 +13,7 @@ import com.simple.b_.databinding.ItemCardMealBinding
 import com.simple.b_.viewmodel.meal.MealViewModel
 import com.simple.data.model.MealInfo
 
-class MealAdapter(private var mealList : ArrayList<MealInfo> = arrayListOf(),val context : Context) :
+class MealAdapter (val context : Context, private var mealList : ArrayList<MealInfo> = arrayListOf()) :
     BaseAdapter<ItemCardMealBinding, MealViewModel, MealViewHolder>(){
 
     fun setData(mealList : ArrayList<MealInfo>) {
