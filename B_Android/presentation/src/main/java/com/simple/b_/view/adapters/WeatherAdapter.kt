@@ -1,31 +1,31 @@
 package com.simple.b_.view.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.simple.b_.base.BaseAdapter
 import com.simple.b_.databinding.ItemWeatherBinding
+import com.simple.b_.viewmodel.weather.WeatherViewModel
 import com.simple.data.model.WeatherData
 import com.simple.data.utils.WeatherConverter
 
-class WeatherAdapter(private var weatherList : ArrayList<WeatherData> = arrayListOf()) : RecyclerView.Adapter<WeatherViewHolder>(){
+class WeatherAdapter(private var weatherList : ArrayList<WeatherData> = arrayListOf(),val context : Context) :
+    BaseAdapter<ItemWeatherBinding, WeatherViewModel, WeatherViewHolder>() {
 
-    fun setData(weatherList: ArrayList<WeatherData>) {
-        this.weatherList = weatherList
-        notifyDataSetChanged()
-    }
+    override val item: ItemWeatherBinding
+        get() = ItemWeatherBinding.inflate(LayoutInflater.from(context))
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherViewHolder {
-        val layoutBinder = ItemWeatherBinding.inflate(LayoutInflater.from(parent.context))
+    override val viewHolder: WeatherViewHolder
+        get() = WeatherViewHolder(item)
 
-        return WeatherViewHolder(layoutBinder)
-    }
+    override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) = holder.bind(weatherList[position])
 
-    override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
-        holder.bind(weatherList[position])
-    }
+    override fun getItemCount(): Int = weatherList.size
 
-    override fun getItemCount() = weatherList.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherViewHolder = viewHolder
+
 }
 
 class WeatherViewHolder(private val item : ItemWeatherBinding) : RecyclerView.ViewHolder(item.root) {
